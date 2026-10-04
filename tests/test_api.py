@@ -33,3 +33,19 @@ def test_create_and_update_order(client):
 
 def test_missing_order(client):
     assert client.get("/api/orders/missing").status_code == 404
+
+
+def test_express_order_near_month_end_does_not_500(client):
+    response = client.post(
+        "/api/orders",
+        json={"customer": "Jordan", "item": "Charger", "priority": "express"},
+    )
+    order_id = response.json()["id"]
+    with main.connect() as db:
+        db.execute(
+            "UPDATE orders SET created_at = ? WHERE id = ?",
+            ("2026-01-31T00:00:00+00:00", order_id),
+        )
+    detail = client.get(f"/api/orders/{order_id}")
+    assert detail.status_code == 200
+    assert detail.json()["estimated_delivery"] == "2026-02-02"
