@@ -1,0 +1,132 @@
+{
+  "traces": [
+    {
+      "traceID": "23770b61f9977cd7e369a7ded4b61ec8",
+      "rootServiceName": "order-tracker",
+      "rootTraceName": "GET /healthz",
+      "startTimeUnixNano": "1791145535220610792"
+    },
+    {
+      "traceID": "3c80b26cb3a316fa76446c6b4fe5fd53",
+      "rootServiceName": "order-tracker",
+      "rootTraceName": "GET /healthz",
+      "startTimeUnixNano": "1791145525059866135"
+    },
+    {
+      "traceID": "7a926365da43c9d27cf77b94732ffc6d",
+      "rootServiceName": "order-tracker",
+      "rootTraceName": "GET /healthz",
+      "startTimeUnixNano": "1791145519976603466"
+    },
+    {
+      "traceID": "7bea04ac562da506fdb23d6bc0e7e8a8",
+      "rootServiceName": "order-tracker",
+      "rootTraceName": "GET /healthz",
+      "startTimeUnixNano": "1791145514892058255"
+    },
+    {
+      "traceID": "98f6dccff4225be1a5505c5687c2c704",
+      "rootServiceName": "order-tracker",
+      "rootTraceName": "GET /healthz",
+      "startTimeUnixNano": "1791145509816912294",
+      "durationMs": 1
+    },
+    {
+      "traceID": "ce0b535dc91ff0a5cb7db92ae8c7d48c",
+      "rootServiceName": "order-tracker",
+      "rootTraceName": "GET /healthz",
+      "startTimeUnixNano": "1791145504731043209"
+    },
+    {
+      "traceID": "2d6571357c5825787c9c16c6aa2b5a29",
+      "rootServiceName": "order-tracker",
+      "rootTraceName": "GET /healthz",
+      "startTimeUnixNano": "1791145499648654887"
+    },
+    {
+      "traceID": "7f61c9885423f6651168599767b47f34",
+      "rootServiceName": "order-tracker",
+      "rootTraceName": "GET /healthz",
+      "startTimeUnixNano": "1791145494577416051"
+    },
+    {
+      "traceID": "76499930257174c3a974933989e799c7",
+      "rootServiceName": "order-tracker",
+      "rootTraceName": "GET /healthz",
+      "startTimeUnixNano": "1791145489501685424"
+    },
+    {
+      "traceID": "c87a648d98db9bd48a50ea7714756cad",
+      "rootServiceName": "order-tracker",
+      "rootTraceName": "GET /healthz",
+      "startTimeUnixNano": "1791145484421889172"
+    },
+    {
+      "traceID": "fd482d59ba92e351fbf74d20d51dfe7c",
+      "rootServiceName": "order-tracker",
+      "rootTraceName": "GET /healthz",
+      "startTimeUnixNano": "1791145479340186128"
+    },
+    {
+      "traceID": "a4a2f4f3ad5792fd8a1477eaec655dce",
+      "rootServiceName": "order-tracker",
+      "rootTraceName": "GET /healthz",
+      "startTimeUnixNano": "1791145474262874500"
+    },
+    {
+      "traceID": "64019cae17d2c967ed0a22b3cda9a6ea",
+      "rootServiceName": "order-tracker",
+      "rootTraceName": "GET /healthz",
+      "startTimeUnixNano": "1791145469191361554"
+    },
+    {
+      "traceID": "beb68c5234b0c66848ee365a2fc9ac61",
+      "rootServiceName": "order-tracker",
+      "rootTraceName": "GET /healthz",
+      "startTimeUnixNano": "1791145464116082718"
+    },
+    {
+      "traceID": "373fc52fe22aa630c720315aa148792e",
+      "rootServiceName": "order-tracker",
+      "rootTraceName": "GET /healthz",
+      "startTimeUnixNano": "1791145459030212799"
+    },
+    {
+      "traceID": "c9fce985ea594c240919a2c20d780038",
+      "rootServiceName": "order-tracker",
+      "rootTraceName": "GET /healthz",
+      "startTimeUnixNano": "1791145453954642546"
+    },
+    {
+      "traceID": "24a80d1e8e7d61dd057d71f6a503a613",
+      "rootServiceName": "order-tracker",
+      "rootTraceName": "GET /healthz",
+      "startTimeUnixNano": "1791145448862793836"
+    },
+    {
+      "traceID": "74eb363efb80de8e562c4874ec3d98b8",
+      "rootServiceName": "order-tracker",
+      "rootTraceName": "GET /healthz",
+      "startTimeUnixNano": "1791145443805108500"
+    },
+    {
+      "traceID": "4de03a49e9a368b45bd8ce1d4102eed1",
+      "rootServiceName": "order-tracker",
+      "rootTraceName": "GET /healthz",
+      "startTimeUnixNano": "1791145438725468512"
+    },
+    {
+      "traceID": "96cbf4685d76649d354690c5db06de9f",
+      "rootServiceName": "order-tracker",
+      "rootTraceName": "GET /healthz",
+      "startTimeUnixNano": "1791145433644010343",
+      "durationMs": 1
+    }
+  ],
+  "metrics": {
+    "inspectedTraces": 21,
+    "inspectedBytes": "203397",
+    "completedJobs": 1,
+    "totalJobs": 1
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "status": "firing",
+  "labels": {
+    "alertname": "Order Tracker - 5xx errors by endpoint",
+    "grafana_folder": "order-tracker",
+    "http_target": "/api/orders/{order_id}",
+    "severity": "critical"
+  },
+  "annotations": {
+    "dashboardUid": "order-tracker",
+    "description": "Endpoint /api/orders/{order_id} on order-tracker had 1.0169215750081353 server error(s) (5xx) in the last 5 minutes. Dashboard: http://localhost:3000/d/order-tracker",
+    "panelId": "2",
+    "summary": "/api/orders/{order_id} returned 5xx errors in the last 5m"
+  },
+  "startsAt": "2026-10-04T20:46:00Z",
+  "endsAt": "0001-01-01T00:00:00Z",
+  "generatorURL": "http://localhost:3000/alerting/grafana/order-tracker-5xx/view?orgId=1",
+  "fingerprint": "c63e9a93ebedf738",
+  "silenceURL": "http://localhost:3000/alerting/silence/new?alertmanager=grafana&matcher=alertname%3DOrder+Tracker+-+5xx+errors+by+endpoint&matcher=grafana_folder%3Dorder-tracker&matcher=http_target%3D%2Fapi%2Forders%2F%7Border_id%7D&matcher=severity%3Dcritical&orgId=1",
+  "dashboardURL": "",
+  "panelURL": "",
+  "values": {
+    "A": 1.0169215750081353,
+    "B": 1.0169215750081353,
+    "C": 1
+  },
+  "valueString": "[ var='A' labels={http_target=/api/orders/{order_id}} value=1.0169215750081353 ], [ var='B' labels={http_target=/api/orders/{order_id}} value=1.0169215750081353 ], [ var='C' labels={http_target=/api/orders/{order_id}} value=1 ]"
+}
