@@ -46,6 +46,8 @@ services:
     volumes:
       - ./observability/loki-config.yaml:/etc/loki/loki-config.yaml:ro
       - loki-data:/loki
+    ports:
+      - "127.0.0.1:3100:3100"
 
   tempo:
     image: grafana/tempo:2.6.1
@@ -53,6 +55,8 @@ services:
     volumes:
       - ./observability/tempo.yaml:/etc/tempo.yaml:ro
       - tempo-data:/var/tempo
+    ports:
+      - "127.0.0.1:3200:3200"
 
   grafana:
     image: grafana/grafana:11.4.0
