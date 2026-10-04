@@ -1,0 +1,61 @@
+{
+  "title": "Order Tracker",
+  "uid": "order-tracker",
+  "timezone": "browser",
+  "time": { "from": "now-1h", "to": "now" },
+  "refresh": "10s",
+  "panels": [
+    {
+      "id": 1,
+      "title": "Request rate by status code",
+      "type": "timeseries",
+      "gridPos": { "h": 9, "w": 12, "x": 0, "y": 0 },
+      "datasource": { "type": "prometheus", "uid": "prometheus" },
+      "targets": [
+        {
+          "expr": "sum by (http_status_code) (rate(http_server_duration_milliseconds_count[1m]))",
+          "legendFormat": "{{http_status_code}}"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Error rate (5xx)",
+      "type": "timeseries",
+      "gridPos": { "h": 9, "w": 12, "x": 12, "y": 0 },
+      "datasource": { "type": "prometheus", "uid": "prometheus" },
+      "targets": [
+        {
+          "expr": "sum(rate(http_server_duration_milliseconds_count{http_status_code=~\"5..\"}[1m]))",
+          "legendFormat": "5xx errors/sec"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Total requests (last 1h)",
+      "type": "stat",
+      "gridPos": { "h": 6, "w": 6, "x": 0, "y": 9 },
+      "datasource": { "type": "prometheus", "uid": "prometheus" },
+      "targets": [
+        { "expr": "sum(increase(http_server_duration_milliseconds_count[1h]))" }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Total errors (last 1h)",
+      "type": "stat",
+      "gridPos": { "h": 6, "w": 6, "x": 6, "y": 9 },
+      "datasource": { "type": "prometheus", "uid": "prometheus" },
+      "targets": [
+        { "expr": "sum(increase(http_server_duration_milliseconds_count{http_status_code=~\"4..|5..\"}[1h]))" }
+      ],
+      "fieldConfig": {
+        "defaults": { "thresholds": { "steps": [
+          { "color": "green", "value": null },
+          { "color": "red", "value": 1 }
+        ] } }
+      }
+    }
+  ]
+}

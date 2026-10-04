@@ -1,0 +1,62 @@
+apiVersion: 1
+
+groups:
+  - orgId: 1
+    name: order-tracker-alerts
+    folder: order-tracker
+    interval: 1m
+    rules:
+      - uid: order-tracker-5xx
+        title: Order Tracker - 5xx errors by endpoint
+        condition: C
+        for: 0s
+        # No 5xx in the window means the series doesn't exist at all (sparse
+        # counter), not that it's zero - "or vector(0)" below forces a real
+        # 0 value so the rule evaluates normally instead of going NoData.
+        noDataState: OK
+        execErrState: Error
+        labels:
+          severity: critical
+        annotations:
+          summary: "{{ $labels.http_target }} returned 5xx errors in the last 5m"
+          description: >-
+            Endpoint {{ $labels.http_target }} on order-tracker had
+            {{ $values.B }} server error(s) (5xx) in the last 5 minutes.
+            Dashboard: http://localhost:3000/d/order-tracker
+          dashboardUid: order-tracker
+          panelId: "2"
+        data:
+          - refId: A
+            relativeTimeRange:
+              from: 300
+              to: 0
+            datasourceUid: prometheus
+            model:
+              editorMode: code
+              expr: sum by (http_target) (increase(http_server_duration_milliseconds_count{http_status_code=~"5.."}[5m])) or vector(0)
+              instant: true
+              range: false
+              refId: A
+          - refId: B
+            relativeTimeRange:
+              from: 0
+              to: 0
+            datasourceUid: "__expr__"
+            model:
+              type: reduce
+              reducer: last
+              expression: A
+              refId: B
+          - refId: C
+            relativeTimeRange:
+              from: 0
+              to: 0
+            datasourceUid: "__expr__"
+            model:
+              type: threshold
+              expression: B
+              conditions:
+                - evaluator:
+                    type: gt
+                    params: [0]
+              refId: C
